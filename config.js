@@ -45,9 +45,33 @@ window.SC_CONFIG = {
 
   // 9) Portafolio: agrega tus proyectos reales (la imagen súbela a la carpeta portfolio/)
   portfolio: [
-    // { name: "Rosa's Bakery", type_en: "Bakery · Dallas, TX", type_es: "Panadería · Dallas, TX",
-    //   image: "portfolio/rosas-bakery.jpg", url: "https://rosasbakery.com",
-    //   result_en: "Online orders in the first week", result_es: "Pedidos en línea desde la primera semana", plan: "Landing" },
+    {
+      name: "Tacos El Vitor",
+      featured: true,                       // tarjeta grande (solo una)
+      type_en: "Taco catering · Hayward, CA",
+      type_es: "Taquizas · Hayward, CA",
+      plan: "",                              // opcional: "Landing" o "Site"
+      image: "portfolio/tacos-el-vitor.jpg",
+      phone: "portfolio/tacos-el-vitor-phone.jpg",
+      url: "https://kikeglez.github.io/tacos-el-vitor/",
+      built_en: ["Bilingual site, Spanish and English", "Instant quote calculator by guests and city", "Booking by WhatsApp, text, email or phone", "Real Yelp reviews and full menu"],
+      built_es: ["Sitio bilingüe, español e inglés", "Cotizador instantáneo por invitados y ciudad", "Reservas por WhatsApp, mensaje, correo o teléfono", "Reseñas reales de Yelp y menú completo"],
+      result_en: "",                        // ej. "40 quote requests in the first month" (solo datos reales)
+      result_es: "",
+      quote_en: "", quote_es: "", quote_by: "" // frase real del cliente, ej. quote_by: "Víctor, owner"
+    },
+    {
+      name: "Enzymatic Games",
+      type_en: "Indie game studio · Google Play",
+      type_es: "Estudio de videojuegos · Google Play",
+      plan: "",                              // opcional: "Landing" o "Site"
+      image: "portfolio/enzymatic-games.jpg",
+      phone: "portfolio/enzymatic-games-phone.jpg",
+      url: "https://kikeglez.github.io/encymatic-games/",
+      built_en: ["Game catalog with Google Play links", "Embedded trailer", "Team, news and app privacy policy"],
+      built_es: ["Catálogo de juegos con enlaces a Google Play", "Tráiler integrado", "Equipo, noticias y política de privacidad de la app"],
+      result_en: "", result_es: ""
+    }
   ],
 
   // 10) Segundos antes de que aparezca el popup de cotización (0 = nunca automático)

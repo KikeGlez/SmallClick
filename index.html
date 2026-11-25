@@ -157,6 +157,29 @@ footer .logo{height:26px}
 .strip button:hover,.strip button:focus-visible{background:var(--click);color:#15171C;border-color:var(--click);outline:none}
 .strip li::before{display:none}
 /* portfolio */
+.pf-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.pf-feat{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);background:var(--raised);border:2px solid light-dark(#15171C,#000);border-radius:20px;overflow:hidden;box-shadow:10px 10px 0 0 var(--click)}
+.pf-shots{position:relative;background:var(--soft);padding:24px 24px 40px;min-height:300px}
+.pf-shots .desk{border-radius:12px;overflow:hidden;border:1.5px solid light-dark(#15171C,#000);background:var(--raised)}
+.pf-shots .desk img{width:100%;height:auto}
+.pf-shots .ph{position:absolute;right:20px;bottom:16px;width:27%;border-radius:18px;overflow:hidden;border:3px solid #15171C;box-shadow:var(--pop);background:#15171C}
+.pf-shots .ph img{width:100%;height:auto}
+.pf-body{padding:clamp(22px,3vw,36px);display:flex;flex-direction:column;gap:14px}
+.pf-kind{font-size:14px;color:var(--muted);font-weight:500}
+.pf-body h3{font-size:clamp(26px,3vw,34px)}
+.pf-body ul{list-style:none;margin:0;padding:0;display:grid;gap:8px;font-size:16px}
+.pf-body li{display:grid;grid-template-columns:20px minmax(0,1fr);gap:10px}
+.pf-body li::before{content:"";width:18px;height:18px;margin-top:3px;border-radius:50%;background:var(--soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.5l2.6 2.5L13 6.5' fill='none' stroke='%23C2361A' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat}
+.pf-quote{font-size:16px;font-style:italic;border-top:1px solid var(--line);padding-top:12px}
+.pf-body .btn{align-self:flex-start;margin-top:auto}
+.pf-card .pf-shots{padding:18px 18px 30px;min-height:0}
+.pf-card .pf-shots .ph{width:24%}
+.pf-card .pf-body{padding:22px}
+.pf-card .pf-body h3{font-size:24px}
+.pf-next{border:2px dashed light-dark(#C9B8A6,#3A3E47);border-radius:20px;padding:clamp(24px,3vw,36px);display:flex;flex-direction:column;justify-content:center;gap:14px;background:var(--sunny-soft)}
+.pf-next h3{font-size:clamp(26px,3vw,32px)}
+.pf-next p{color:var(--muted)}
+.pf-next .btn{align-self:flex-start}
 .pf-img{aspect-ratio:4/3.3;background:var(--soft);overflow:hidden}.pf-img img{width:100%;height:100%;object-fit:cover;object-position:top}
 .pf-res{padding:0 16px 16px;font-size:14px;color:var(--mint);font-weight:700}
 .cap a{font-weight:700;color:var(--click-strong);text-decoration:none;white-space:nowrap}
@@ -188,7 +211,8 @@ dialog.quote::backdrop{background:rgba(21,23,28,.55)}
 .wa{position:fixed;right:16px;bottom:16px;z-index:31;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;border:2px solid #15171C;box-shadow:var(--pop)}
 .wa svg{width:30px;height:30px}
 @media(max-width:980px){nav{display:none}.works,.steps,.plans{grid-template-columns:minmax(0,1fr)}.works{grid-template-columns:repeat(2,minmax(0,1fr))}.plan.hot{order:-1}}
-@media(max-width:760px){.wa{bottom:84px}.deadline .clock{font-size:19px}.hero{grid-template-columns:minmax(0,1fr)}.stage{max-width:460px;margin:8px auto 0}.deal{grid-template-columns:minmax(0,1fr)}.deal .pic{min-height:220px}.works{grid-template-columns:minmax(0,1fr)}
+@media(max-width:860px){.pf-feat{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){.pf-grid{grid-template-columns:minmax(0,1fr)}.wa{bottom:84px}.deadline .clock{font-size:19px}.hero{grid-template-columns:minmax(0,1fr)}.stage{max-width:460px;margin:8px auto 0}.deal{grid-template-columns:minmax(0,1fr)}.deal .pic{min-height:220px}.works{grid-template-columns:minmax(0,1fr)}
  .bar .btn{display:none}.lang{margin-left:auto}.site{aspect-ratio:16/11}.sticky{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:30}.sticky .btn{width:100%}body{padding-bottom:76px}}
 @media(max-width:600px){.grid2{grid-template-columns:minmax(0,1fr)}.price{font-size:44px}.logo{height:30px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn,summary::after{transition:none}}
@@ -486,6 +510,33 @@ const CONFIG = window.SC_CONFIG || {
   email: "hello@smallclick.com",
 
   portfolio: [
+    {
+      name: "Tacos El Vitor",
+      featured: true,                       // tarjeta grande (solo una)
+      type_en: "Taco catering · Hayward, CA",
+      type_es: "Taquizas · Hayward, CA",
+      plan: "",                              // opcional: "Landing" o "Site"
+      image: "portfolio/tacos-el-vitor.jpg",
+      phone: "portfolio/tacos-el-vitor-phone.jpg",
+      url: "https://kikeglez.github.io/tacos-el-vitor/",
+      built_en: ["Bilingual site, Spanish and English", "Instant quote calculator by guests and city", "Booking by WhatsApp, text, email or phone", "Real Yelp reviews and full menu"],
+      built_es: ["Sitio bilingüe, español e inglés", "Cotizador instantáneo por invitados y ciudad", "Reservas por WhatsApp, mensaje, correo o teléfono", "Reseñas reales de Yelp y menú completo"],
+      result_en: "",                        // ej. "40 quote requests in the first month" (solo datos reales)
+      result_es: "",
+      quote_en: "", quote_es: "", quote_by: "" // frase real del cliente, ej. quote_by: "Víctor, owner"
+    },
+    {
+      name: "Enzymatic Games",
+      type_en: "Indie game studio · Google Play",
+      type_es: "Estudio de videojuegos · Google Play",
+      plan: "",                              // opcional: "Landing" o "Site"
+      image: "portfolio/enzymatic-games.jpg",
+      phone: "portfolio/enzymatic-games-phone.jpg",
+      url: "https://kikeglez.github.io/encymatic-games/",
+      built_en: ["Game catalog with Google Play links", "Embedded trailer", "Team, news and app privacy policy"],
+      built_es: ["Catálogo de juegos con enlaces a Google Play", "Tráiler integrado", "Equipo, noticias y política de privacidad de la app"],
+      result_en: "", result_es: ""
+    }
   ],
 
   quotePopupDelay: 25
@@ -559,12 +610,20 @@ $$('.lang button').forEach((b) => b.addEventListener('click', () => setLang(b.da
 function renderPortfolio() {
   const list = CONFIG.portfolio || [], box = $('#portfolio');
   if (!list.length) return;
-  const l = L();
-  box.innerHTML = list.map((p) => `<article class="win"><div class="chrome"><i></i><i></i><i></i></div>
-   <div class="pf-img">${p.image ? `<img src="${esc(p.image)}" alt="${esc(p.name)}" loading="lazy">` : ''}</div>
-   ${p['result_' + l] ? `<p class="pf-res" style="padding-top:14px">✓ ${esc(p['result_' + l])}</p>` : ''}
-   <div class="cap"><span><b>${esc(p.name)}</b><br>${esc(p['type_' + l] || '')}</span>${p.url ? `<a href="${esc(p.url)}" target="_blank" rel="noopener">${l === 'es' ? 'Ver sitio' : 'Visit site'} →</a>` : `<span>${esc(p.plan || '')}</span>`}</div></article>`).join('');
-  box.hidden = false; $('#samples').hidden = true; $('#sampleNote').hidden = true;
+  const l = L(), es = l === 'es';
+  const shots = (p) => `<div class="pf-shots">${p.image ? `<div class="desk"><img src="${esc(p.image)}" alt="${esc(p.name)} — ${es ? 'vista en computadora' : 'desktop view'}" loading="lazy"></div>` : ''}${p.phone ? `<div class="ph"><img src="${esc(p.phone)}" alt="${esc(p.name)} — ${es ? 'vista en celular' : 'mobile view'}" loading="lazy"></div>` : ''}</div>`;
+  const body = (p) => {
+    const built = p['built_' + l] || [], res = p['result_' + l], q = p['quote_' + l];
+    return `<div class="pf-body"><span class="pf-kind">${esc(p['type_' + l] || '')}${p.plan ? ' · SmallClick ' + esc(p.plan) : ''}</span><h3>${esc(p.name)}</h3>
+      ${built.length ? `<ul>${built.map((x) => `<li>${esc(x)}</li>`).join('')}</ul>` : ''}
+      ${res ? `<p class="pf-res" style="padding:0">✓ ${esc(res)}</p>` : ''}
+      ${q ? `<p class="pf-quote">“${esc(q)}”${p.quote_by ? ` — ${esc(p.quote_by)}` : ''}</p>` : ''}
+      ${p.url ? `<a class="btn${p.featured ? ' primary' : ''}" href="${esc(p.url)}" target="_blank" rel="noopener">${es ? 'Ver sitio en vivo' : 'Visit live site'} →</a>` : ''}</div>`;
+  };
+  const cards = list.map((p) => p.featured ? `<article class="pf-feat">${shots(p)}${body(p)}</article>` : `<article class="win pf-card">${shots(p)}${body(p)}</article>`);
+  cards.push(`<div class="pf-next"><h3>${es ? 'Tu negocio podría ser el siguiente.' : 'Your business could be next.'}</h3><p>${es ? 'Cuéntanos qué vendes y te mandamos una cotización gratis, más tu cupón de 8%.' : "Tell us what you sell and we'll send a free quote, plus your 8% coupon."}</p><button class="btn primary" type="button" data-quote>${es ? 'Cotizar mi página' : 'Quote my website'}</button></div>`);
+  box.innerHTML = cards.join('');
+  box.className = 'pf-grid'; box.hidden = false; $('#samples').hidden = true; $('#sampleNote').hidden = true;
 }
 
 /* ---------- urgency countdown ---------- */
@@ -642,6 +701,7 @@ function pickBiz(k) {
   dlg.classList.add('step2'); setTimeout(() => $('#q-name').focus(), 50);
 }
 document.addEventListener('click', (e) => {
+  if (e.target.closest('[data-quote]')) { openQuote(); return; }
   const b = e.target.closest('[data-biz]'); if (!b) return;
   if (b.closest('#chips')) pickBiz(b.dataset.biz); else openQuote(b.dataset.biz);
 });
